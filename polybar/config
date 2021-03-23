@@ -1,0 +1,285 @@
+[colors]
+background = #0A0E14
+background-alt = #1F2430
+foreground = #B3B1AD
+foreground-alt = #CBCCC6
+primary = #ffb52a
+secondary = #e60053
+alert = #bd2c40
+polar-night1 = #2E3440
+polar-night2 = #3B4252
+polar-night3 = #434C5E
+polar-night4 = #4C566A
+snow-storm1 = #D8DEE9
+snow-storm2 = #E5E9F0
+snow-storm3 = #ECEFF4
+frost1 = #8FBCBB
+frost2 = #88C0D0
+frost3 = #81A1C1
+frost4 = #5E81AC
+aurora_red = #BF616A
+aurora_amber = #D08770
+aurora_yellow = #EBCB8B
+aurora_green = #A3BE8C
+aurora_pink = #B48EAD
+
+[bar/main2]
+enable-ipc = true
+monitor = eDP-1
+width = 100%
+height = 20
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-color = #FF3333
+line-size = 1
+
+padding-left = 2
+padding-right = 2
+module-margin-left = 0
+module-margin-right = 0
+
+separator = " | "
+
+font-0 = OpenSans:style=regular:size=10.5:antialias=true;1
+font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
+font-2 = siji:pixelsize=10;0
+font-3 = Font Awesome 5 Free:pixelsize=12;0
+font-4 = Font Awesome 5 Free Solid:pixelsize=12;2
+font-5 = Font Awesome 5 Free Brands:pixelsize=12;2
+
+
+modules-left = i3
+modules-center = date xwindow 
+modules-right =  filesystem cpu memory wifi-download wifi-upload pulseaudio
+
+wm-restack = i3
+
+tray-position = right 
+tray-scale = 1.0
+;tray-transparent = true
+tray-background = ${colors.background-alt}
+tray-maxsize = 64
+
+tray-offset-y = 0
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+overline-size = 10
+overline-color = ${self.background}
+underline-size = 2
+underline-color = ${self.background}
+
+
+[bar/main]
+enable-ipc = true
+monitor = DP-3
+width = 100%
+height = 20
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-color = #FF3333
+line-size = 1
+
+padding-left = 2
+padding-right = 2
+module-margin-left = 0
+module-margin-right = 0
+
+separator = " | "
+
+font-0 = OpenSans:style=regular:size=10.5:antialias=true;1
+font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
+font-2 = siji:pixelsize=10;0
+font-3 = Font Awesome 5 Free:pixelsize=12;0
+font-4 = Font Awesome 5 Free Solid:pixelsize=12;2
+font-5 = Font Awesome 5 Free Brands:pixelsize=12;2
+
+
+modules-left = i3
+modules-center = date xwindow 
+modules-right =  filesystem cpu memory wifi-download wifi-upload pulseaudio
+
+wm-restack = i3
+
+tray-position = right 
+tray-scale = 1.0
+;tray-transparent = true
+tray-background = ${colors.background-alt}
+tray-maxsize = 64
+
+tray-offset-y = 0
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+overline-size = 10
+overline-color = ${self.background}
+underline-size = 2
+underline-color = ${self.background}
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
+label = %percentage:2%%
+
+[module/date]
+type = internal/date
+date = %d %B %Y  %%{F#fff}%H %%{F#88C0D0}%M%%{F-} %%{F#fba922}%S%%{F-}
+date-alt = %%{F#999}%d-%m-%Y%%{F-}  %%{F#fff}%H:%M:%S%%{F-}
+
+[module/memory]
+type = internal/memory
+format-prefix = " "
+label = %gb_used%/%gb_free%
+
+bar-used-width = 30
+bar-used-foreground-0 = #aaff77
+bar-used-foreground-1 = #aaff77
+bar-used-foreground-2 = #fba922
+bar-used-foreground-3 = #ff5555
+bar-used-indicator = |
+bar-used-indicator-font = 6
+bar-used-indicator-foreground = #ff
+bar-used-fill = -
+bar-used-fill-font = 6
+bar-used-empty = -
+bar-used-empty-font = 6
+bar-used-empty-foreground = #444444
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+mount-0 = /
+label-mounted =  %free%
+
+[module/i3]
+type = internal/i3
+fuzzy-match = true
+
+label-dimmed-underline = ${colors.aurora_yellow.background}
+
+; Available tags:
+;   <label-state> (default) - gets replaced with <label-(focused|unfocused|visible|urgent)>
+;   <label-mode> (default)
+format = <label-state> <label-mode>
+
+; Available tokens:
+;   %mode%
+; Default: %mode%
+label-mode = %mode%
+label-mode-padding = 0
+label-mode-background = #e60053
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-focused =  %name%
+label-focused-foreground = #ffffff
+label-focused-background = #3f3f3f
+label-focused-underline = #fba922
+label-focused-padding = 4
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-unfocused = %name%
+label-unfocused-padding = 4
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-visible = %name%
+label-visible-underline = #555555
+label-visible-padding = 4
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-urgent = %name%
+label-urgent-foreground = #000000
+label-urgent-background = #bd2c40
+label-urgent-padding = 4
+
+; Separator in between workspaces
+label-separator = |
+label-separator-padding = 0
+label-separator-foreground = #ffb52a
+
+pin-workspaces = true
+strip-wsnumbers = true
+index-sort = true
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:25:...%
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+format-volume = <label-volume>
+label-volume =  %percentage%%
+label-volume-foreground = ${root.foreground}
+
+label-muted =  muted
+label-muted-foreground = #666
+
+bar-volume-width = 10
+bar-volume-foreground-0 = #55aa55
+bar-volume-foreground-1 = #55aa55
+bar-volume-foreground-2 = #55aa55
+bar-volume-foreground-3 = #55aa55
+bar-volume-foreground-4 = #55aa55
+bar-volume-foreground-5 = #f5a70a
+bar-volume-foreground-6 = #ff5555
+bar-volume-gradient = false
+bar-volume-indicator = |
+bar-volume-indicator-font = 2
+bar-volume-fill = ─
+bar-volume-fill-font = 2
+bar-volume-empty = ─
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.foreground-alt}
+
+[module/wifi-download]
+type = internal/network
+interface = wlp41s0f3u2
+interval = 3.0
+unknown-as-up = true
+format-connected = <label-connected>
+format-disconnected = <label-disconnected>
+label-connected =    %downspeed%
+format-connected-prefix-foreground = ${colors.foreground}
+label-connected-foreground = ${colors.foreground}
+
+[module/wifi-upload]
+type = internal/network
+interface = wlp41s0f3u2
+interval = 3.0
+unknown-as-up = true
+format-connected = <label-connected>
+format-disconnected = <label-disconnected>
+format-connected-prefix = "  "   
+label-connected =  %upspeed%
+format-connected-prefix-foreground = ${colors.foreground}
+label-connected-foreground = ${colors.foreground}
