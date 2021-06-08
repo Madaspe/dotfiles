@@ -15,5 +15,6 @@
 10. Wallpaper - nitrogen
 11. Shell - zsh
 12. System monitor - htop
+13. System fetch - neofetch
 
 Nothing else
