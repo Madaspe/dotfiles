@@ -18,3 +18,4 @@
 13. System fetch - neofetch
 
 Nothing else
+An important clarification is that in the future my software will change and this will be reflected here. Old Software -> New
