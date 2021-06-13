@@ -1,0 +1,32 @@
+-- http://projects.haskell.org/xmobar/
+-- I use Font Awesome 5 fonts in this config for unicode "icons".  On Arch Linux,
+-- install this package from the AUR to get these fonts: otf-font-awesome-5-free
+
+Config { font    = "xft:Hack:weight=bold:pixelsize=11:antialias=true:hinting=true"
+       , additionalFonts = [ "xft:Mononoki Nerd Font:pixelsize=11:antialias=true:hinting=true"
+                           , "xft:Font Awesome 5 Free Solid:pixelsize=12"
+                           , "xft:Font Awesome 5 Brands:pixelsize=12"
+                           ]
+       , bgColor = "#282c34"
+       , fgColor = "#ff6c6b"
+       , lowerOnStart = True
+       , hideOnStart = False
+       , allDesktops = True
+       , persistent = True
+       , commands = [
+                    -- Time and date
+                      Run Date "%b %d %Y - (%H:%M) " "date" 50
+                      -- Network up and down
+                    , Run Cpu ["-t", "cpu: (<total>%)","-H","50","--high","red"] 20
+                      -- Ram used number and percent
+                    , Run Memory ["-t", "mem: <used>M (<usedratio>%)"] 20
+                      -- Disk space free
+                    , Run DiskU [("/", "hdd: <free> free")] [] 60
+                      -- Runs custom script to check for pacman updates.
+                      -- This script is in my dotfiles repo in .local/bin.
+                    , Run UnsafeStdinReader
+					]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = " <icon=haskell_20.xpm/>   <fc=#666666>|</fc> %UnsafeStdinReader% }{  <fc=#666666>|</fc>  <fc=#b3afc2><fn=3></fn>  <action=`st -e htop`>Gentoo Linux</action> </fc> <fc=#666666>|</fc>  <fc=#ecbe7b> <action=`st -e htop`>%cpu%</action> </fc> <fc=#666666>|</fc>  <fc=#ff6c6b> <action=`st -e htop`>%memory%</action> </fc> <fc=#666666>|</fc>  <fc=#51afef> <action=`st -e htop`>%disku%</action> </fc> <fc=#666666>|</fc>  <fc=#46d9ff> <action=`emacsclient -c -a 'emacs' --eval '(doom/window-maximize-buffer(dt/year-calendar))'`>%date%</action>  </fc>"
+       }
