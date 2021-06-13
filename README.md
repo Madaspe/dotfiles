@@ -3,7 +3,7 @@
 
 
 ## What I use in my workspace
-1. WM - dwm
+1. WM - dwm -> Xmonad
 2. Terminal - simple terminal
 3. File manager - thunar
 4. Music - spotify
@@ -15,5 +15,6 @@
 10. Wallpaper - nitrogen
 11. Shell - zsh
 12. System monitor - htop
+13. System fetch - neofetch
 
 Nothing else
