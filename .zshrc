@@ -1,7 +1,5 @@
-
 export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
 export ZSH=$HOME/.oh-my-zsh
-
 ZSH_THEME="ar-round"
 
 plugins=(zsh-autosuggestions zsh-completions zsh-syntax-highlighting bgnotify)
@@ -14,6 +12,12 @@ PRIV="doas"
 
 alias c="clear"
 alias q="exit"
+alias hd="hexdump -C"
+
+alias em="emerge"
+alias dem="$PRIV emerge"
+alias aflag="$PRIV flaggie"
+
 alias emergeins="$PRIV emerge -av"
 alias emergeinmask="$PRIV emerge -av --autounmask=y --autounmask-write"
 alias emergepv="$PRIV emerge -pv"
@@ -30,6 +34,7 @@ alias rc-update="$PRIV rc-update"
 alias pingoogle="ping 8.8.8.8"
 alias nanosu="$PRIV nano"
 alias nvimsu="$PRIV nvim"
+alias refram="$PRIV sh -c 'sync; echo 3 > /proc/sys/vm/drop_caches'"
 alias ls="exa --icons --group-directories-first"
 alias la="exa -lgha --icons --group-directories-first"
 
@@ -37,5 +42,8 @@ alias sudo="$PRIV"
 alias vim="nvim"
 alias cat="bat"
 
+alias xmonadr="xmonad --recompile && xmonad --restart"
+
 export GPG_TTY=$(tty)
+
 export BAT_THEME="base16"
